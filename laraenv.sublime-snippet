@@ -1,0 +1,17 @@
+<snippet>
+    <content><![CDATA[
+\$env = \$app->detectEnvironment(function(){
+    if(stripos((isset(\$_SERVER['HTTP_HOST']) ? \$_SERVER['HTTP_HOST'] : ''), '.dev') !== false){
+        define('PUBLIC_PATH', __DIR__.'/../public');
+        return 'local';
+    }
+    
+    define('PUBLIC_PATH', __DIR__.'/../../public_html');
+    return 'production';
+});
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>laraenv</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.php</scope>
+</snippet>
